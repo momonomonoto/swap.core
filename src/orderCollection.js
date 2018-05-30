@@ -36,7 +36,7 @@ class OrderCollection extends Collection {
           'isProcessing',
         ))
 
-        console.log(`Send my orders to ${peer}`, myOrders)
+        console.log(`Send my orders to ${peer}`, myOrders.length)
 
         room.sendMessage(peer, [
           {
@@ -63,7 +63,7 @@ class OrderCollection extends Collection {
       // ductape to check if such orders already exist
       const filteredOrders = orders.filter(({ id }) => !this.getByKey(id))
 
-      console.log(`Receive orders from ${fromPeer}`, filteredOrders)
+      console.log(`Receive orders from ${fromPeer}`, filteredOrders.length)
 
       this._handleMultipleCreate(filteredOrders)
     })
